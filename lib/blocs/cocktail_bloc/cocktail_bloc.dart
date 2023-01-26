@@ -5,9 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:hello_flutter/main.dart';
 import 'package:hello_flutter/models/cocktail_db/cocktail_db.dart';
 import 'package:hello_flutter/models/cocktail_db/drink.dart';
+import 'package:hello_flutter/repository/cocktail_repository.dart';
 import 'package:http/http.dart' as http;
-
-import '../repository/cocktail_repository.dart';
 
 part 'cocktail_event.dart';
 part 'cocktail_state.dart';

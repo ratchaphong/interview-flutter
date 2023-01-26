@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hello_flutter/bloc/cocktail_bloc.dart';
+import 'package:hello_flutter/blocs/cocktail_bloc/cocktail_bloc.dart';
 import 'package:hello_flutter/models/cocktail_db/cocktail_db.dart';
 import 'package:hello_flutter/models/cocktail_db/drink.dart';
 import 'package:hello_flutter/pages/detail_page.dart';
