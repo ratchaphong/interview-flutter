@@ -2,6 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hello_flutter/bloc/cocktail_bloc.dart';
+import 'package:hello_flutter/repository/cocktail_repository.dart';
+import 'package:hello_flutter/repository/the_cocktail_db_provider.dart';
 import 'package:hello_flutter/models/cocktail_db/cocktail_db.dart';
 import 'package:hello_flutter/pages/detail_page.dart';
 import 'package:hello_flutter/pages/list_page.dart';
@@ -9,20 +13,19 @@ import 'package:hello_flutter/pages/search_page.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  // runApp(const MyApp());
-  // runApp(
-  //   const MaterialApp(
-  //     home: SearchPage(),
-  //   ),
-  // );
   runApp(
-    MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SearchPage(),
-        '/list': (context) => const ListPage(),
-        '/detail': (context) => const DetailPage(),
-      },
+    BlocProvider(
+      // create: (context) => CocktailBloc(),
+      create: (context) =>
+          CocktailBloc(CocktailRepository(TheCocktailDbProvider())),
+      child: MaterialApp(
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SearchPage(),
+          '/list': (context) => const ListPage(),
+          '/detail': (context) => const DetailPage(),
+        },
+      ),
     ),
   );
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hello_flutter/bloc/cocktail_bloc.dart';
 import 'package:hello_flutter/pages/list_page.dart';
 
 class SearchPage extends StatefulWidget {
@@ -18,8 +20,20 @@ class _SearchPageState extends State<SearchPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: textCtrl,
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: textCtrl,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () {
+                  textCtrl.clear();
+                },
+              ),
+            ],
           ),
           ElevatedButton(
             child: const Text('Search'),
@@ -36,10 +50,11 @@ class _SearchPageState extends State<SearchPage> {
               //     builder: (context) => ListPage(searchText: textCtrl.text),
               //   ),
               // );
+              BlocProvider.of<CocktailBloc>(context)
+                  .add(SearchEvent(textCtrl.text));
               Navigator.pushNamed(
                 context,
                 "/list",
-                arguments: ListPageArgs(textCtrl.text),
               );
             },
           )
