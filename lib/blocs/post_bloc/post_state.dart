@@ -18,3 +18,9 @@ class PostFinish extends PostState {
 
   PostFinish(this.posts);
 }
+
+class PostByIdFinish extends PostState {
+  final Post post;
+
+  PostByIdFinish(this.post);
+}

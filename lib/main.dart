@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_flutter/blocs/cocktail_bloc/cocktail_bloc.dart';
 import 'package:hello_flutter/blocs/post_bloc/post_bloc.dart';
 import 'package:hello_flutter/pages/home_page.dart';
+import 'package:hello_flutter/pages/post_page.dart';
+import 'package:hello_flutter/pages/posts_page.dart';
 import 'package:hello_flutter/repository/cocktail_repository.dart';
 import 'package:hello_flutter/repository/post_repository.dart';
 import 'package:hello_flutter/repository/the_cocktail_db_provider.dart';
@@ -28,6 +30,8 @@ void main() {
           '/cocktail': (context) => const SearchPage(),
           '/list': (context) => const ListPage(),
           '/detail': (context) => const DetailPage(),
+          '/posts': (context) => const PostsPage(),
+          '/post': (context) => const PostPage(),
         },
       ),
     ),
@@ -38,7 +42,7 @@ void main() {
 // flutter pub add bloc
 // flutter pub add flutter_bloc
 // https://www.thecocktaildb.com/api.php
-// extension json To Dart Model ->  javiercbk.github.io
+// extension json To Dart Model ->  https://javiercbk.github.io/json_to_dart/
 // extension bloc
 // flutter pub add http
 // flutter run

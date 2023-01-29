@@ -19,10 +19,10 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              child: const Text("Login"),
+              child: const Text("Posts"),
               onTap: () {
                 BlocProvider.of<PostBloc>(context).add(GetPostsEvent());
-                // Navigator.pushNamed(context, "/post");
+                Navigator.pushNamed(context, "/posts");
               },
             ),
             InkWell(
